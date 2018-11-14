@@ -1,4 +1,4 @@
-
+'use strict';
 const express = require('express');
 const router = express.Router();
 const morgan = require('morgan');
@@ -52,6 +52,13 @@ app.delete('/shopping-list/:id', (req, res) => {
   console.log(`Deleted shopping list item \`${req.params.id}\``);
   res.status(204).end();
 });
+
+app.delete('/recipes/:id', (req, res) => {
+  Recipes.delete(req.params.id);
+  console.log('Deleted item');
+  res.status(204).end();
+});
+
 
 
 // when new recipe added, ensure has required fields. if not,
